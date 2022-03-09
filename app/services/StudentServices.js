@@ -5,11 +5,11 @@ export default class MemberServices {
             url: 'https://6214ccb089fad53b1f1f676b.mockapi.io/School'
         });
     }
-    addMember(Member){
+    addMember(member){
         return axios({
             method: 'post',
             url: 'https://6214ccb089fad53b1f1f676b.mockapi.io/School',
-            data: Member
+            data: member
         });
     }
     deleteMember(id){
