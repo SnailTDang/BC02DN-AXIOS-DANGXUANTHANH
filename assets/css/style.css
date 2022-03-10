@@ -1,3 +1,25 @@
 td {
     line-height: 50px;
 }
+
+#MatKhau {
+    width: 50%;
+}
+
+.password {
+    position: relative;
+}
+
+#eye {
+    position: absolute;
+    right: 50%;
+    top: 0;
+    line-height: 38px;
+    padding: 0 11px;
+    cursor: pointer;
+}
+
+.sp-thongbao {
+    display: none;
+    color: rgb(255, 57, 57);
+}

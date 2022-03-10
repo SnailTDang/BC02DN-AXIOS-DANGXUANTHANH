@@ -25,4 +25,11 @@ export default class MemberServices {
         });
         
     }
+    updateMember(id,member) {
+        return axios({
+            method: 'put',
+            url: `https://6214ccb089fad53b1f1f676b.mockapi.io/School/${id}`,
+            data: member
+        });
+    }
 }
