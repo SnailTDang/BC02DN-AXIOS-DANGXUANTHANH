@@ -1,6 +1,14 @@
 td {
     line-height: 50px;
 }
+tr {
+    text-align: center;
+}
+
+.form-group label {
+    color: var(--green);
+    font-weight: 600;
+}
 
 #MatKhau {
     width: 50%;

@@ -130,16 +130,52 @@ window.showDetails  = showDetails;
 
 let updateMember= (id) => {
     let {TaiKhoan, HoTen, MatKhau, Email, HinhAnh, loaiNguoiDung, loaiNgonNgu, MoTa} = getInfoMem();
+    let isValid = true;
 
-    let member = new Member(TaiKhoan, HoTen, MatKhau, Email, loaiNguoiDung, loaiNgonNgu, MoTa,  HinhAnh);
-    memberServ.updateMember(id,member)
-    .then((result) => {
-        showMember();
-        document.querySelector("#myModal .close").click()
-    })
-    .catch((error) => { 
-        console.log(error)
-    })
+    isValid &=
+    validation.checkEmpty(
+        HoTen,
+        "tbHoTen",
+        "Tên nhân viên không được để trống"
+    )
+    && validation.checkName(HoTen, "tbHoTen", "Tên nhân viên phải là chữ");
+    isValid &= validation.checkEmpty(HinhAnh,"tbHinhAnh","Hình ảnh không được để trống");
+    isValid &= validation.checkEmpty(MoTa,"tbMoTa","Mô tả không được để trống")&& validation.checkLong(MoTa,"tbMoTa","Mô tả không được quá 60 ký tự");
+    //kiểm tra email: định dạng email
+    isValid &= validation.checkEmail(
+    Email,
+    "tbEmail",
+    "Email chưa đúng định dạng"
+    )&& validation.checkEmpty(Email,"tbEmail","Email không được để trống");
+    //kiểm tra pass: định dạng pass (có 1 ký chư, 1 in hoa, 1 số, 1 đặc biet, độ dài)
+    isValid &= validation.checkPass(
+        MatKhau,
+    "tbMatKhau",
+    "Mật khẩu chưa đúng định dạng"
+    )&& validation.checkEmpty(MatKhau,"tbMatKhau","Mật khẩu không được để trống") ;
+    //kiem tra KH
+    isValid &= validation.checkSelect(
+    "loaiNgonNgu",
+    "tbloaiNgonNgu",
+    "Bạn chưa chọn ngôn ngữ"
+    );
+    isValid &= validation.checkSelect(
+    "loaiNguoiDung",
+    "tbloaiNguoiDung",
+    "Bạn chưa chọn người dùng"
+    );
+
+    if(isValid) {
+        let member = new Member(TaiKhoan, HoTen, MatKhau, Email, loaiNguoiDung, loaiNgonNgu, MoTa,  HinhAnh);
+        memberServ.updateMember(id,member)
+        .then((result) => {
+            showMember();
+            document.querySelector("#myModal .close").click()
+        })
+        .catch((error) => { 
+            console.log(error)
+        })
+    }
 };
 
 let getInfoMem = () => {
