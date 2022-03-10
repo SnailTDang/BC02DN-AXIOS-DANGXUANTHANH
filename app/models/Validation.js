@@ -66,7 +66,7 @@ export default class Validation {
         return false;
     }
     checkPass (value, spanID, message) {
-        let pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,8}$/;
+        let pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,}$/;
         if (value.match(pattern)) {
             //hợp lệ
             document.getElementById(spanID).innerHTML = "";
