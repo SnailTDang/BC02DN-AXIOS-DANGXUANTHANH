@@ -139,20 +139,24 @@ let updateMember= (id) => {
         "Tên nhân viên không được để trống"
     )
     && validation.checkName(HoTen, "tbHoTen", "Tên nhân viên phải là chữ");
+
     isValid &= validation.checkEmpty(HinhAnh,"tbHinhAnh","Hình ảnh không được để trống");
+
     isValid &= validation.checkEmpty(MoTa,"tbMoTa","Mô tả không được để trống")&& validation.checkLong(MoTa,"tbMoTa","Mô tả không được quá 60 ký tự");
+
     //kiểm tra email: định dạng email
-    isValid &= validation.checkEmail(
-    Email,
-    "tbEmail",
-    "Email chưa đúng định dạng"
-    )&& validation.checkEmpty(Email,"tbEmail","Email không được để trống");
+    isValid &=  validation.checkEmpty(Email,"tbEmail","Email không được để trống")
+    &&validation.checkEmail(
+        Email,
+        "tbEmail",
+        "Email chưa đúng định dạng"
+        );
     //kiểm tra pass: định dạng pass (có 1 ký chư, 1 in hoa, 1 số, 1 đặc biet, độ dài)
-    isValid &= validation.checkPass(
+    isValid &= validation.checkEmpty(MatKhau,"tbMatKhau","Mật khẩu không được để trống")&& validation.checkPass(
         MatKhau,
     "tbMatKhau",
     "Mật khẩu chưa đúng định dạng"
-    )&& validation.checkEmpty(MatKhau,"tbMatKhau","Mật khẩu không được để trống") ;
+    )
     //kiem tra KH
     isValid &= validation.checkSelect(
     "loaiNgonNgu",
@@ -243,18 +247,18 @@ let checkValidation = (TaiKhoan,HoTen,MatKhau,Email,HinhAnh,MoTa) => {
     && validation.checkName(HoTen, "tbHoTen", "Tên nhân viên phải là chữ");
     isValid &= validation.checkEmpty(HinhAnh,"tbHinhAnh","Hình ảnh không được để trống");
     isValid &= validation.checkEmpty(MoTa,"tbMoTa","Mô tả không được để trống")&& validation.checkLong(MoTa,"tbMoTa","Mô tả không được quá 60 ký tự");
-    //kiểm tra email: định dạng email
-    isValid &= validation.checkEmail(
-    Email,
-    "tbEmail",
-    "Email chưa đúng định dạng"
-    )&& validation.checkEmpty(Email,"tbEmail","Email không được để trống");
+    isValid &=  validation.checkEmpty(Email,"tbEmail","Email không được để trống")
+    &&validation.checkEmail(
+        Email,
+        "tbEmail",
+        "Email chưa đúng định dạng"
+        );
     //kiểm tra pass: định dạng pass (có 1 ký chư, 1 in hoa, 1 số, 1 đặc biet, độ dài)
-    isValid &= validation.checkPass(
+    isValid &= validation.checkEmpty(MatKhau,"tbMatKhau","Mật khẩu không được để trống")&& validation.checkPass(
         MatKhau,
     "tbMatKhau",
     "Mật khẩu chưa đúng định dạng"
-    )&& validation.checkEmpty(MatKhau,"tbMatKhau","Mật khẩu không được để trống") ;
+    )
     //kiem tra KH
     isValid &= validation.checkSelect(
     "loaiNgonNgu",
