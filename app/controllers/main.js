@@ -392,13 +392,13 @@ let searchMember = () => {
         let findArr = [];
         let findLower = textInput.toLowerCase();
         memberList.map((e) => {
-            let taiKhoan = e.taiKhoan.toLowerCase();
-            let indexFind = taiKhoan.indexOf(findLower);
+            let hoTen = e.hoTen.toLowerCase();
+            let indexFind = hoTen.indexOf(findLower);
             if (indexFind > -1) {
                 findArr.push(e);
             }
         });
-        if (findArr.length > 1) {
+        if (findArr.length) {
             renderList(findArr);
         } else {
             document.querySelector("#tblDanhSachNguoiDung").innerHTML =
