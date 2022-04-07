@@ -1,35 +1,36 @@
 export default class MemberServices {
-    getMemberList(){
+    getMemberList() {
         return axios({
-            method: 'get',
-            url: 'https://6214ccb089fad53b1f1f676b.mockapi.io/School'
+            method: "get",
+            url: "https://6214ccb089fad53b1f1f676b.mockapi.io/School",
         });
     }
-    addMember(member){
+    addMember(member) {
         return axios({
-            method: 'post',
-            url: 'https://6214ccb089fad53b1f1f676b.mockapi.io/School',
-            data: member
+            method: "post",
+            url: "https://6214ccb089fad53b1f1f676b.mockapi.io/School",
+            data: member,
         });
     }
-    deleteMember(id){
+    deleteMember(id) {
         return axios({
-            method: 'delete',
+            method: "delete",
             url: `https://6214ccb089fad53b1f1f676b.mockapi.io/School/${id}`,
         });
     }
-    getMember(id){
+
+    getMember(id) {
         return axios({
-            method: 'get',
+            method: "get",
             url: `https://6214ccb089fad53b1f1f676b.mockapi.io/School/${id}`,
         });
-        
     }
-    updateMember(id,member) {
+
+    updateMember(id, member) {
         return axios({
-            method: 'put',
+            method: "put",
             url: `https://6214ccb089fad53b1f1f676b.mockapi.io/School/${id}`,
-            data: member
+            data: member,
         });
     }
 }
